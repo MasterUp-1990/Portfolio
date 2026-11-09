@@ -48,8 +48,8 @@ export default function Lightbox({ open, images, captions = [], title, start = 0
           onClick={onClose}
         >
           <div className="flex items-center justify-between gap-4 border-b border-line px-5 py-4 md:px-10" onClick={(e) => e.stopPropagation()}>
-            <p className="truncate font-display text-sm uppercase text-slate-50 md:text-base">{title}</p>
-            <button data-testid="lightbox-close" onClick={onClose} aria-label="Close" className="grid h-10 w-10 shrink-0 place-items-center border border-line text-slate-200 transition-colors hover:border-volt hover:text-volt">
+            <p className="truncate font-display text-sm uppercase text-ink md:text-base">{title}</p>
+            <button data-testid="lightbox-close" onClick={onClose} aria-label="Close" className="grid h-10 w-10 shrink-0 place-items-center border border-line text-slate-700 transition-colors hover:border-volt hover:text-volt">
               <X className="h-5 w-5" />
             </button>
           </div>
@@ -74,7 +74,7 @@ export default function Lightbox({ open, images, captions = [], title, start = 0
               />
             </AnimatePresence>
             {n > 1 && [[-1, ChevronLeft, 'prev', 'left-3 md:left-8'], [1, ChevronRight, 'next', 'right-3 md:right-8']].map(([d, Icon, name, pos]) => (
-              <button key={name} data-testid={`lightbox-${name}`} onClick={() => go(d)} aria-label={`${name} photo`} className={`absolute top-1/2 z-10 grid h-12 w-12 -translate-y-1/2 place-items-center border border-line bg-ink/70 text-slate-100 backdrop-blur transition-colors hover:border-cyan hover:text-cyan ${pos}`}>
+              <button key={name} data-testid={`lightbox-${name}`} onClick={() => go(d)} aria-label={`${name} photo`} className={`absolute top-1/2 z-10 grid h-12 w-12 -translate-y-1/2 place-items-center border border-line bg-ink/70 text-ink backdrop-blur transition-colors hover:border-cyan hover:text-cyan ${pos}`}>
                 <Icon className="h-5 w-5" />
               </button>
             ))}
@@ -89,7 +89,7 @@ export default function Lightbox({ open, images, captions = [], title, start = 0
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4 }}
-                className="min-h-[1.25rem] text-center font-mono text-xs uppercase tracking-[0.18em] text-slate-200"
+                className="min-h-[1.25rem] text-center font-mono text-xs uppercase tracking-[0.18em] text-slate-700"
               >
                 {captions[i] || ''}
               </motion.p>

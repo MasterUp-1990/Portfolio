@@ -5,15 +5,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#06080D",
-        panel: "#0E1522",
-        panel2: "#121B2B",
-        line: "#1E2A3D",
-        cyan: { DEFAULT: "#22D3EE" },
-        volt: "#F2662B",
-        mint: "#34D399",
-        amber: "#FBBF24",
-        mute: "#8B98AB",
+        paper: "#F0F4F8",
+        ink: "#0B1524",
+        panel: "#FFFFFF",
+        panel2: "#E6EDF5",
+        line: "#CDD7E3",
+        cyan: { DEFAULT: "#0891B2" },
+        volt: "#E4570E",
+        mint: "#0D9F6E",
+        amber: "#D97706",
+        mute: "#5B6B7C",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],

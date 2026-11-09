@@ -11,20 +11,20 @@ function Role({ r, i }) {
         whileInView={{ scale: 1, rotate: 45 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.7, ease }}
-        className="absolute left-[7px] top-1 h-5 w-5 border-2 border-volt bg-ink md:left-[23px]"
+        className="absolute left-[7px] top-1 h-5 w-5 border-2 border-volt bg-paper md:left-[23px]"
       />
       <Reveal>
         <p className="font-mono text-xs uppercase tracking-[0.3em] text-volt">{r.period}</p>
-        <h3 className="mt-3 font-display text-lg uppercase leading-snug text-slate-50 md:text-2xl">{r.role}</h3>
+        <h3 className="mt-3 font-display text-lg uppercase leading-snug text-ink md:text-2xl">{r.role}</h3>
         <p className="mt-2 font-mono text-xs text-slate-400">{r.company} <span className="text-slate-600">//</span> {r.location}</p>
         <ul className="mt-6 space-y-3">
           {(r.bullets || []).map((b) => (
-            <li key={b} className="flex gap-3 text-[15px] leading-relaxed text-slate-300"><span className="font-mono text-mint">+</span>{b}</li>
+            <li key={b} className="flex gap-3 text-[15px] leading-relaxed text-slate-600"><span className="font-mono text-mint">+</span>{b}</li>
           ))}
         </ul>
         <div className="mt-6 flex flex-wrap gap-2">
           {(r.tags || []).map((t) => (
-            <span key={t} className="border border-line bg-panel px-3 py-1.5 font-mono text-[11px] text-slate-200 transition-colors duration-300 hover:border-cyan hover:text-cyan">{t}</span>
+            <span key={t} className="border border-line bg-panel px-3 py-1.5 font-mono text-[11px] text-slate-600 transition-colors duration-300 hover:border-cyan hover:text-cyan">{t}</span>
           ))}
         </div>
       </Reveal>

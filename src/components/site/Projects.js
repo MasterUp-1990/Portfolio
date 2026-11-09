@@ -35,18 +35,18 @@ function Project({ p, i, featured = false, flip = false }) {
                 <Star className="h-3 w-3 fill-ink" /> Featured
               </span>
             )}
-            <h3 className={`font-display uppercase leading-snug text-slate-50 ${featured ? 'text-2xl md:text-4xl' : 'text-xl md:text-2xl'}`}>{p.title}</h3>
+            <h3 className={`font-display uppercase leading-snug text-ink ${featured ? 'text-2xl md:text-4xl' : 'text-xl md:text-2xl'}`}>{p.title}</h3>
             <p className="mt-3 font-mono text-[11px] uppercase leading-relaxed tracking-[0.18em] text-volt">{p.subtitle}</p>
             </div>
             <div className="flex flex-col">
-            <p className={`text-[15px] leading-relaxed text-slate-300 ${featured ? 'md:text-base' : 'mt-6'}`}>{p.description}</p>
+            <p className={`text-[15px] leading-relaxed text-slate-600 ${featured ? 'md:text-base' : 'mt-6'}`}>{p.description}</p>
             <div className="mt-6 flex flex-wrap gap-2">
               {(p.tags || []).map((t) => (
                 <span key={t} className="border border-cyan/40 bg-cyan/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-cyan">{t}</span>
               ))}
             </div>
             {!!p.pinout?.length && (
-              <button data-testid={`project-pinout-toggle-${i}`} onClick={() => setOpen((o) => !o)} className="mt-8 flex items-center gap-3 self-start font-mono text-[11px] uppercase tracking-[0.25em] text-slate-200 transition-colors hover:text-cyan">
+              <button data-testid={`project-pinout-toggle-${i}`} onClick={() => setOpen((o) => !o)} className="mt-8 flex items-center gap-3 self-start font-mono text-[11px] uppercase tracking-[0.25em] text-slate-700 transition-colors hover:text-cyan">
                 <span className="grid h-6 w-6 place-items-center border border-line"><ChevronDown className={`h-3.5 w-3.5 transition-transform duration-500 ${open ? 'rotate-180' : ''}`} /></span>
                 {open ? 'Hide pinout' : 'View pinout'}
               </button>

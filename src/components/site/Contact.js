@@ -1,10 +1,11 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Download, Mail, MapPin, Github, Linkedin, ArrowUpRight } from 'lucide-react';
+import { Download, Mail, MapPin, Phone, Github, Linkedin, ArrowUpRight } from 'lucide-react';
 import { Reveal, SectionHead, ease, resumeFilename } from './ui';
 
 export default function Contact({ settings }) {
   const email = settings.email?.trim();
+  const phone = settings.phone?.trim();
   const resume = settings.resume?.trim();
   const linkedin = settings.linkedin?.trim();
   const github = settings.github?.trim();
@@ -16,7 +17,7 @@ export default function Contact({ settings }) {
 
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
-            <p className="max-w-md text-base leading-relaxed text-slate-300 md:text-lg">
+            <p className="max-w-md text-base leading-relaxed text-slate-600 md:text-lg">
               Prefer a direct line? Drop a note or grab the résumé — both routes land in the same inbox that reads datasheets for fun.
             </p>
             {(settings.availability || settings.location) && (
@@ -24,7 +25,7 @@ export default function Contact({ settings }) {
                 {settings.availability && (
                   <div>
                     <dt className="text-slate-500">Availability</dt>
-                    <dd data-testid="contact-availability" className="mt-2 text-slate-100">{settings.availability}</dd>
+                    <dd data-testid="contact-availability" className="mt-2 text-ink">{settings.availability}</dd>
                   </div>
                 )}
                 {settings.location && (
@@ -32,7 +33,7 @@ export default function Contact({ settings }) {
                     <MapPin className="mt-0.5 h-3.5 w-3.5 text-cyan" />
                     <div>
                       <dt className="text-slate-500">Base</dt>
-                      <dd data-testid="contact-location" className="mt-2 text-slate-100">{settings.location}</dd>
+                      <dd data-testid="contact-location" className="mt-2 text-ink">{settings.location}</dd>
                     </div>
                   </div>
                 )}
@@ -56,7 +57,28 @@ export default function Contact({ settings }) {
                   </span>
                   <span className="mt-10">
                     <span className="block font-mono text-[10px] uppercase tracking-[0.28em] text-slate-500">Email</span>
-                    <span className="mt-2 block break-all font-mono text-sm text-slate-100">{email}</span>
+                    <span className="mt-2 block break-all font-mono text-sm text-ink">{email}</span>
+                  </span>
+                </a>
+              </Reveal>
+            )}
+
+            {phone && (
+              <Reveal delay={0.07}>
+                <a
+                  href={`tel:${phone.replace(/[^\d+]/g, '')}`}
+                  data-testid="contact-phone-link"
+                  className="cut2 group flex h-full flex-col justify-between border border-line bg-panel p-6 transition-colors duration-300 hover:border-mint hover:bg-mint/5"
+                >
+                  <span className="flex items-center justify-between">
+                    <span className="grid h-10 w-10 place-items-center border border-line text-mint transition-colors group-hover:border-mint">
+                      <Phone className="h-4 w-4" />
+                    </span>
+                    <ArrowUpRight className="h-4 w-4 text-slate-500 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-mint" />
+                  </span>
+                  <span className="mt-10">
+                    <span className="block font-mono text-[10px] uppercase tracking-[0.28em] text-slate-500">Phone</span>
+                    <span className="mt-2 block font-mono text-sm text-ink">{phone}</span>
                   </span>
                 </a>
               </Reveal>
@@ -80,7 +102,7 @@ export default function Contact({ settings }) {
                   </span>
                   <span className="mt-10">
                     <span className="block font-mono text-[10px] uppercase tracking-[0.28em] text-slate-500">Résumé</span>
-                    <span className="mt-2 block font-mono text-sm text-slate-100">Download PDF</span>
+                    <span className="mt-2 block font-mono text-sm text-ink">Download PDF</span>
                   </span>
                 </a>
               </Reveal>
@@ -110,7 +132,7 @@ export default function Contact({ settings }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-testid="contact-linkedin-link"
-                      className="cut2 group inline-flex items-center gap-3 border border-line bg-panel px-5 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-slate-200 transition-colors hover:border-cyan hover:text-cyan"
+                      className="cut2 group inline-flex items-center gap-3 border border-line bg-panel px-5 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-slate-700 transition-colors hover:border-cyan hover:text-cyan"
                     >
                       <Linkedin className="h-4 w-4" /> LinkedIn
                       <ArrowUpRight className="h-3.5 w-3.5 text-slate-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -122,7 +144,7 @@ export default function Contact({ settings }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-testid="contact-github-link"
-                      className="cut2 group inline-flex items-center gap-3 border border-line bg-panel px-5 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-slate-200 transition-colors hover:border-cyan hover:text-cyan"
+                      className="cut2 group inline-flex items-center gap-3 border border-line bg-panel px-5 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-slate-700 transition-colors hover:border-cyan hover:text-cyan"
                     >
                       <Github className="h-4 w-4" /> GitHub
                       <ArrowUpRight className="h-3.5 w-3.5 text-slate-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

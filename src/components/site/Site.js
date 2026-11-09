@@ -38,7 +38,7 @@ export default function Site({ content: initial }) {
           <Contact settings={settings} />
         </main>
         <Footer settings={settings} />
-        <Toaster theme="dark" position="bottom-right" toastOptions={{ style: { fontFamily: 'var(--font-mono)', background: '#0E1522', border: '1px solid #1E2A3D' } }} />
+        <Toaster theme="light" position="bottom-right" toastOptions={{ style: { fontFamily: 'var(--font-mono)', background: '#FFFFFF', border: '1px solid #CDD7E3', color: '#0B1524' } }} />
       </div>
     </ReactLenis>
   );

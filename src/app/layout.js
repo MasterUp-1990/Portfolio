@@ -16,7 +16,7 @@ export async function generateMetadata() {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
-      <body className="bg-ink font-sans text-slate-200 antialiased">{children}</body>
+      <body className="bg-paper font-sans text-ink antialiased">{children}</body>
     </html>
   );
 }

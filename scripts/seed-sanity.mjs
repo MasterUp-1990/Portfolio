@@ -27,9 +27,14 @@ const keyed = (arr, p) => (arr || []).map((o, i) => ({ _key: `${p}${i}`, ...o })
 
 const { settings, about, skills, projects, experience, education } = fallback;
 // Relative /resume.pdf is fine for Next.js public/, but Sanity url fields need absolute URLs.
-const { resume: _resume, ...settingsForSanity } = settings;
+const { resume: _resume, heroImage, ...settingsForSanity } = settings;
 const docs = [
-  { _id: 'siteSettings', _type: 'siteSettings', ...settingsForSanity },
+  {
+    _id: 'siteSettings',
+    _type: 'siteSettings',
+    ...settingsForSanity,
+    ...(heroImage ? { heroImage: await img(heroImage) } : {}),
+  },
   {
     _id: 'about', _type: 'about', heading: about.heading, caption: about.caption, paragraphs: about.paragraphs,
     stats: keyed(about.stats, 's'), toolchain: about.toolchain, image: await img(about.image),
@@ -45,7 +50,14 @@ const docs = [
   ...education.map((e, i) => ({ _id: `education-${i}`, _type: 'education', order: i, ...e })),
 ];
 
+const keepIds = new Set(docs.map((d) => d._id));
+const existing = await client.fetch(`*[_type in $types]{_id, _type}`, {
+  types: ['skillGroup', 'project', 'experience', 'education'],
+});
+const orphans = existing.filter((d) => !keepIds.has(d._id));
+
 const tx = client.transaction();
 docs.forEach((d) => tx.createOrReplace(Object.fromEntries(Object.entries(d).filter(([, v]) => v !== undefined && v !== ''))));
+orphans.forEach((d) => tx.delete(d._id));
 await tx.commit();
-console.log(`Seeded ${docs.length} documents into ${projectId}/${dataset}`);
+console.log(`Seeded ${docs.length} documents into ${projectId}/${dataset}${orphans.length ? ` (removed ${orphans.length} stale)` : ''}`);

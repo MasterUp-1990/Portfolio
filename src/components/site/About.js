@@ -17,7 +17,7 @@ function Stat({ value, label, i }) {
   }, [inView, value]);
   return (
     <Reveal delay={i * 0.08}>
-      <div ref={ref} className="cut2 frame h-full hover:bg-cyan/60">
+      <div ref={ref} className="cut2 frame h-full hover:bg-cyan/40">
         <div className="cut2 flex h-full flex-col items-center justify-center bg-panel px-2 py-6 text-center">
           <span data-testid={`about-stat-value-${i}`} className="font-display text-xl text-cyan md:text-2xl">{shown}</span>
           <span className="mt-2 font-mono text-[10px] uppercase leading-tight tracking-[0.2em] text-slate-400">{label}</span>
@@ -55,7 +55,7 @@ export default function About({ about, settings }) {
                 </div>
               </div>
             </Reveal>
-            <div className="mt-10 space-y-5 text-[15px] leading-relaxed text-slate-300 md:text-base">
+            <div className="mt-10 space-y-5 text-[15px] leading-relaxed text-slate-600 md:text-base">
               {(about.paragraphs || []).map((p, i) => (
                 <Reveal key={p.slice(0, 20)} delay={i * 0.08}><p data-testid={`about-paragraph-${i}`}>{p}</p></Reveal>
               ))}

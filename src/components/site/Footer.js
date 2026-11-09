@@ -16,7 +16,7 @@ export default function Footer({ settings }) {
           </div>
           <div className="flex flex-wrap items-center gap-4">
             {settings.email && (
-              <a data-testid="footer-contact-email" href={`mailto:${settings.email}`} className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-slate-300 hover:text-cyan">
+              <a data-testid="footer-contact-email" href={`mailto:${settings.email}`} className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-slate-600 hover:text-cyan">
                 <Mail className="h-3.5 w-3.5" /> {settings.email}
               </a>
             )}
@@ -27,12 +27,12 @@ export default function Footer({ settings }) {
                 download={resumeFilename(settings.name)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-slate-300 hover:text-volt"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-slate-600 hover:text-volt"
               >
                 <Download className="h-3.5 w-3.5" /> Résumé
               </a>
             )}
-            <button data-testid="footer-back-to-top" onClick={() => scrollTo('home')} className="group flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-slate-300 hover:text-cyan">
+            <button data-testid="footer-back-to-top" onClick={() => scrollTo('home')} className="group flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-slate-600 hover:text-cyan">
               Back to top <span className="grid h-9 w-9 place-items-center border border-line transition-colors group-hover:border-cyan"><ArrowUp className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" /></span>
             </button>
           </div>
@@ -46,7 +46,7 @@ export default function Footer({ settings }) {
           data-testid="footer-wordmark"
         >
           <svg viewBox="0 0 1000 114" className="block h-auto w-full overflow-visible" role="img" aria-label={settings.name}>
-            <text x="0" y="112" textLength="1008" lengthAdjust="spacingAndGlyphs" fontFamily="var(--font-display)" fontSize="136" fill="transparent" stroke="rgba(226,232,240,0.55)" strokeWidth="1" style={{ textTransform: 'uppercase' }}>
+            <text x="0" y="112" textLength="1008" lengthAdjust="spacingAndGlyphs" fontFamily="var(--font-display)" fontSize="136" fill="transparent" stroke="rgba(11,21,36,0.14)" strokeWidth="1" style={{ textTransform: 'uppercase' }}>
               {(settings.name || '').toUpperCase()}
             </text>
           </svg>

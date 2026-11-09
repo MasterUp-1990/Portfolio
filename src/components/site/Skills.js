@@ -4,10 +4,10 @@ import { Reveal, SectionHead } from './ui';
 
 const ICONS = { cpu: Cpu, layers: Layers, radio: Radio, activity: Activity, zap: Zap, code: Code2, brain: Brain, chip: Microchip };
 const ACCENT = {
-  cyan: { text: 'text-cyan', border: 'border-cyan', hover: 'hover:bg-cyan/70', tag: 'border-l-cyan' },
-  volt: { text: 'text-volt', border: 'border-volt', hover: 'hover:bg-volt/70', tag: 'border-l-volt' },
-  mint: { text: 'text-mint', border: 'border-mint', hover: 'hover:bg-mint/70', tag: 'border-l-mint' },
-  amber: { text: 'text-amber', border: 'border-amber', hover: 'hover:bg-amber/70', tag: 'border-l-amber' },
+  cyan: { text: 'text-cyan', border: 'border-cyan', hover: 'hover:bg-cyan/50', tag: 'border-l-cyan' },
+  volt: { text: 'text-volt', border: 'border-volt', hover: 'hover:bg-volt/50', tag: 'border-l-volt' },
+  mint: { text: 'text-mint', border: 'border-mint', hover: 'hover:bg-mint/50', tag: 'border-l-mint' },
+  amber: { text: 'text-amber', border: 'border-amber', hover: 'hover:bg-amber/50', tag: 'border-l-amber' },
 };
 const SPANS = ['lg:col-span-7', 'lg:col-span-5', 'lg:col-span-5', 'lg:col-span-7'];
 
@@ -27,11 +27,11 @@ function Card({ g, i, total }) {
           <div className="relative flex items-start justify-between">
             <span className={`grid h-12 w-12 place-items-center border ${a.border} ${a.text} transition-transform duration-500 group-hover:rotate-[8deg]`}><Icon className="h-5 w-5" /></span>
           </div>
-          <h3 className="relative mt-8 font-display text-lg uppercase leading-snug text-slate-50 md:text-xl">{g.title}</h3>
-          <p className="relative mt-3 max-w-xl text-[15px] leading-relaxed text-slate-400">{g.description}</p>
+          <h3 className="relative mt-8 font-display text-lg uppercase leading-snug text-ink md:text-xl">{g.title}</h3>
+          <p className="relative mt-3 max-w-xl text-[15px] leading-relaxed text-slate-600">{g.description}</p>
           <div className="relative mt-auto flex flex-wrap gap-2 pt-8">
             {(g.tags || []).map((t, j) => (
-              <span key={t} className={`border border-line border-l-2 ${a.tag} bg-ink/60 px-3 py-1.5 font-mono text-[11px] text-slate-200 transition-transform duration-300 group-hover:-translate-y-0.5`} style={{ transitionDelay: `${j * 25}ms` }}>
+              <span key={t} className={`border border-line border-l-2 ${a.tag} bg-paper px-3 py-1.5 font-mono text-[11px] text-slate-700 transition-transform duration-300 group-hover:-translate-y-0.5`} style={{ transitionDelay: `${j * 25}ms` }}>
                 {t}
               </span>
             ))}

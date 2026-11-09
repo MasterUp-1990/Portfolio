@@ -61,7 +61,7 @@ export default function Gallery({ images, captions = [], title, y, idx }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="pointer-events-auto absolute left-0 top-0 max-w-full border-l-2 border-cyan bg-ink/75 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.15em] text-slate-100 backdrop-blur"
+              className="pointer-events-auto absolute left-0 top-0 max-w-full border-l-2 border-cyan bg-ink/75 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.15em] text-ink backdrop-blur"
             >
               {captions[i]}
             </motion.p>
@@ -88,11 +88,11 @@ export default function Gallery({ images, captions = [], title, y, idx }) {
           </div>
         )}
         {n > 1 && [[-1, ChevronLeft, 'prev'], [1, ChevronRight, 'next']].map(([d, Icon, name]) => (
-            <button key={name} onClick={() => go(d)} aria-label={`${name} image`} data-testid={`project-gallery-${idx}-${name}`} className="grid h-8 w-8 place-items-center border border-slate-50/20 bg-ink/60 text-slate-100 backdrop-blur transition-colors duration-300 hover:border-cyan hover:text-cyan">
+            <button key={name} onClick={() => go(d)} aria-label={`${name} image`} data-testid={`project-gallery-${idx}-${name}`} className="grid h-8 w-8 place-items-center border border-slate-50/20 bg-ink/60 text-ink backdrop-blur transition-colors duration-300 hover:border-cyan hover:text-cyan">
               <Icon className="h-4 w-4" />
             </button>
           ))}
-        <button onClick={() => setOpen(true)} aria-label="View full screen" data-testid={`project-gallery-${idx}-fullscreen`} className="grid h-8 w-8 place-items-center border border-slate-50/20 bg-ink/60 text-slate-100 backdrop-blur transition-colors duration-300 hover:border-volt hover:text-volt">
+        <button onClick={() => setOpen(true)} aria-label="View full screen" data-testid={`project-gallery-${idx}-fullscreen`} className="grid h-8 w-8 place-items-center border border-slate-50/20 bg-ink/60 text-ink backdrop-blur transition-colors duration-300 hover:border-volt hover:text-volt">
           <Maximize2 className="h-4 w-4" />
         </button>
       </div>

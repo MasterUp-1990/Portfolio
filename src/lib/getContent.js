@@ -6,7 +6,8 @@ export const hasSanity = !!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const QUERY = `{
   "settings": *[_type == "siteSettings"][0]{
     ...,
-    "resume": coalesce(resumeFile.asset->url, resume)
+    "resume": coalesce(resumeFile.asset->url, resume),
+    "heroImage": coalesce(heroImage.asset->url, heroImage)
   },
   "about": *[_type == "about"][0]{_id, _type, heading, caption, paragraphs, stats, toolchain, "image": image.asset->url},
   "skills": *[_type == "skillGroup"] | order(orderRank asc, order asc){title, description, icon, accent, tags},

@@ -11,6 +11,14 @@ const siteSettings = {
     str('seoTitle', 'Page title (browser tab)'), txt('seoDescription', 'Meta description (search & social)'),
     str('name', 'Full name'), str('role', 'Role / title'), str('kicker', 'Hero kicker line'),
     strList('heroLines', 'Hero headline lines'), txt('heroIntro', 'Hero intro'),
+    {
+      name: 'heroImage',
+      title: 'Home hero image',
+      description: 'Full-bleed photo behind the home section.',
+      type: 'image',
+      options: { hotspot: true },
+    },
+    str('heroCaption', 'Home hero caption'),
     strList('marqueeSkills', 'Skills marquee (right-to-left)'),
     str('location', 'Location'),
     {
@@ -20,6 +28,7 @@ const siteSettings = {
       type: 'string',
     },
     str('email', 'Email (mailto contact link)'),
+    str('phone', 'Phone'),
     { name: 'linkedin', title: 'LinkedIn URL', type: 'url' },
     { name: 'github', title: 'GitHub URL', type: 'url' },
     {

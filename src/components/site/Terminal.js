@@ -23,7 +23,7 @@ const commands = (about, settings) => ({
   read_sensors: () => [`TEMP ....... ${rnd(36, 41)} °C`, `HUMIDITY ... ${rnd(40, 48)} %RH`, `VIBRATION .. ${rnd(0.01, 0.04, 3)} g RMS`, `BUS VOLTAGE ${rnd(3.28, 3.34, 2)} V`],
   ping_nodes: () => ['PINGING 6 MESH NODES ...', ...['GW-01', 'NODE-A3', 'NODE-B7', 'NODE-C1', 'LORA-RX', 'BLE-M2'].map((n) => `${n.padEnd(8, ' ')} ${rnd(2, 48, 1)} ms  ttl=64`), '6/6 nodes reachable, 0% loss'],
   view_specs: () => ['TOOLCHAIN:', ...(about.toolchain || []).map((t) => `· ${t}`)],
-  whoami: () => [`${settings.name} — ${settings.role}.`, 'Writes C for a living, Verilog for fun, and reads datasheets cover to cover.'],
+  whoami: () => [`${settings.name} — ${settings.role}.`, 'Writes C/C++ for a living, brings up boards for fun, and reads datasheets cover to cover.'],
   contact: () => {
     if (!settings.email) return ['contact channel offline — set Email in Site Settings'];
     if (typeof window !== 'undefined') window.location.href = `mailto:${settings.email}`;
@@ -74,20 +74,20 @@ export default function Terminal({ about, settings }) {
   };
 
   return (
-    <div data-testid="about-terminal" className="cut frame bg-mint/30 shadow-[0_0_80px_-20px_rgba(52,211,153,0.25)]">
-      <div className="cut bg-[#070B11]" onClick={() => input.current?.focus()}>
-        <div className="flex items-center justify-between border-b border-line px-5 py-3.5">
+    <div data-testid="about-terminal" className="cut frame bg-cyan/20 shadow-[0_24px_60px_-28px_rgba(8,145,178,0.45)]">
+      <div className="cut bg-[#0B1524]" onClick={() => input.current?.focus()}>
+        <div className="flex items-center justify-between border-b border-white/10 px-5 py-3.5">
           <div className="flex gap-2"><span className="h-2.5 w-2.5 rounded-full bg-volt" /><span className="h-2.5 w-2.5 rounded-full bg-amber" /><span className="h-2.5 w-2.5 rounded-full bg-mint" /></div>
           <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-400">{(settings.name || 'user').split(' ')[0].toLowerCase()}@lab-01: ~/console</span>
         </div>
-        <div ref={body} data-lenis-prevent data-testid="terminal-output" className="h-[300px] overflow-y-auto px-5 py-4 font-mono text-[12.5px] leading-6 [scrollbar-color:#1E2A3D_transparent] md:h-[340px]">
+        <div ref={body} data-lenis-prevent data-testid="terminal-output" className="h-[300px] overflow-y-auto px-5 py-4 font-mono text-[12.5px] leading-6 [scrollbar-color:#334155_transparent] md:h-[340px]">
           {lines.map((l, i) => (
             <div key={i} className={l.k === 'cmd' ? 'font-bold text-cyan' : l.k === 'err' ? 'text-volt' : 'whitespace-pre-wrap text-slate-300'}>
               {l.k === 'cmd' ? `> ${l.t}` : l.t}
             </div>
           ))}
         </div>
-        <div className="border-t border-line px-5 py-4">
+        <div className="border-t border-white/10 px-5 py-4">
           <div className="flex items-center gap-2 font-mono text-[13px]">
             <span className="text-cyan">&gt;</span>
             <input
@@ -105,7 +105,7 @@ export default function Terminal({ about, settings }) {
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
             {QUICK.map((q) => (
-              <button key={q} data-testid={`terminal-quick-${q}`} onClick={() => run(q)} className="border border-line px-3 py-1.5 font-mono text-[11px] text-cyan transition-colors duration-300 hover:border-cyan hover:bg-cyan/10">
+              <button key={q} data-testid={`terminal-quick-${q}`} onClick={() => run(q)} className="border border-white/15 px-3 py-1.5 font-mono text-[11px] text-cyan transition-colors duration-300 hover:border-cyan hover:bg-cyan/10">
                 {q}
               </button>
             ))}

@@ -36,7 +36,7 @@ export function SectionHead({ label, title, color = 'text-cyan', testid }) {
         </div>
       </Reveal>
       <motion.h2
-        className="mt-5 font-display text-[1.9rem] uppercase leading-[1.05] text-slate-50 sm:text-5xl lg:text-6xl"
+        className="mt-5 font-display text-[1.9rem] uppercase leading-[1.05] text-ink sm:text-5xl lg:text-6xl"
         initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
         whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         viewport={{ once: true, amount: 0.15 }}

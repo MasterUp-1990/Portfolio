@@ -58,7 +58,7 @@ const structure = (S, context) =>
 
 export default defineConfig({
   name: 'default',
-  title: 'Alex Carter — Portfolio',
+  title: 'Steven Tran — Portfolio',
   icon: StudioIcon,
   theme,
   basePath: '/studio',
